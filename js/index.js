@@ -1,6 +1,132 @@
 window.addEventListener('DOMContentLoaded', function() {
 
-    // 图片数据
+    // 商品数据
+    let goodData = {
+        path: [{
+            title: "手机、数码、通讯",
+            url: "###"
+        }, {
+            title: "手机",
+            url: "###"
+        }, {
+            title: "Apple苹果",
+            url: "###"
+        }, {
+            title: "iphone 6S系类",
+        }],
+        imgsrc: [
+            { b: "./images/b1.png", s: "./images/s1.png" },
+            { b: "./images/b2.png", s: "./images/s2.png" },
+            { b: "./images/b3.png", s: "./images/s3.png" },
+            { b: "./images/b1.png", s: "./images/s1.png" },
+            { b: "./images/b2.png", s: "./images/s2.png" },
+            { b: "./images/b3.png", s: "./images/s3.png" },
+            { b: "./images/b1.png", s: "./images/s1.png" },
+            { b: "./images/b2.png", s: "./images/s2.png" },
+            { b: "./images/b3.png", s: "./images/s3.png" },
+            { b: "./images/b1.png", s: "./images/s1.png" },
+            { b: "./images/b2.png", s: "./images/s2.png" },
+            { b: "./images/b3.png", s: "./images/s3.png" },
+            { b: "./images/b1.png", s: "./images/s1.png" },
+            { b: "./images/b2.png", s: "./images/s2.png" },
+            { b: "./images/b3.png", s: "./images/s3.png" },
+        ],
+        goodsDetail: {
+            title: "Apple iPhone 6s（A1700）64G玫瑰金色 移动通信电信4G手机",
+            recommend: "推荐选择下方[移动优惠购],手机套餐齐搞定,不用换号,每月还有花费返",
+            price: 5299,
+            promoteSales: {
+                type: "加价购",
+                content: "满999.00另加20.00元，或满1999.00另加30.00元，或满2999.00另加40.00元，即可在购物车换购热销商品"
+            },
+            support: "以旧换新，闲置手机回收 4G套餐超值抢 礼品购",
+            address: "广东省 深圳市 宝安区",
+            evaluateNum: 670000,
+            crumbData: [{
+                    "title": "选择颜色",
+                    "data": [{
+                            type: "金色",
+                            changePrice: 0
+                        },
+                        {
+                            type: "银色",
+                            changePrice: 40
+                        },
+                        {
+                            type: "黑色",
+                            changePrice: 90
+                        },
+                    ]
+                },
+                {
+                    "title": "内存容量",
+                    "data": [{
+                            type: "16G",
+                            changePrice: 0
+                        },
+                        {
+                            type: "64G",
+                            changePrice: 300
+                        },
+                        {
+                            type: "128G",
+                            changePrice: 900
+                        },
+                        {
+                            type: "256G",
+                            changePrice: 1300
+                        },
+                    ]
+                },
+                {
+                    "title": "选择版本",
+                    "data": [{
+                            type: "公开版",
+                            changePrice: 0
+                        },
+                        {
+                            type: "移动版",
+                            changePrice: -1000
+                        }
+                    ]
+                },
+                {
+                    "title": "购买方式",
+                    "data": [{
+                            type: "官方标配",
+                            changePrice: 0
+                        },
+                        {
+                            type: "优惠移动版",
+                            changePrice: -240
+                        },
+                        {
+                            type: "电信优惠版",
+                            changePrice: -390
+                        },
+                    ]
+                }
+            ]
+        }
+    }
+
+
+    // 动态生成路径导航
+    pathNav();
+
+    function pathNav() {
+        var path = document.querySelector('.wrap .introduction .relation')
+        for (var i = 0; i < goodData.path.length; i++) {
+            var a = document.createElement('a')
+            a.innerHTML = goodData.path[i].title;
+            if (i < goodData.path.length - 1) {
+                a.href = goodData.path[i].url
+            }
+            path.appendChild(a)
+        }
+    }
+
+
 
 
     imgInfo()
@@ -8,17 +134,7 @@ window.addEventListener('DOMContentLoaded', function() {
     // 商品图片介绍信息
     function imgInfo() {
 
-        var images = [
-            { s: './images/s1.png', b: './images/b1.png' },
-            { s: './images/s2.png', b: './images/b2.png' },
-            { s: './images/s3.png', b: './images/b3.png' },
-            { s: './images/s1.png', b: './images/b1.png' },
-            { s: './images/s2.png', b: './images/b2.png' },
-            { s: './images/s3.png', b: './images/b3.png' },
-            { s: './images/s1.png', b: './images/b1.png' },
-            { s: './images/s2.png', b: './images/b2.png' },
-            { s: './images/s3.png', b: './images/b3.png' },
-        ]
+        var images = goodData.imgsrc;
         console.log(images[0].b)
 
         var preview = document.querySelector('.wrap .introduction .introWrap .introArea .introductionImg')
@@ -170,44 +286,82 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 
 
+
+
+    goodDetails();
+    // 动态生成购买区域
+    function goodDetails() {
+        var str = `<h3 class="infoName">${goodData.goodsDetail.title}</h3>
+        <p class="news">${goodData.goodsDetail.recommend}</p>
+        <div class="priceArea">
+            <div class="priceAreal">
+                <div class="priceTitle">价格</div>
+                <div class="price">
+                    <i>￥</i>
+                    <em>${goodData.goodsDetail.price}</em>
+                    <a href="###">降价通知</a>
+                </div>
+                <div class="remark">
+                    <i>累计评价</i>
+                    <span>${goodData.goodsDetail.evaluateNum}</span>
+                </div>
+            </div>
+            <div class="notice">
+                <div class="noticeTitle">促销</div>
+                <div class="noticeInfo">
+                    <i>${goodData.goodsDetail.promoteSales.type}</i>
+                    <span>${goodData.goodsDetail.promoteSales.content}</span>
+                </div>
+            </div>
+        </div>
+        <div class="support">
+            <div class="supporter">
+                <div>支持</div>
+                <span>${goodData.goodsDetail.support}</span>
+            </div>
+            <div class="address">
+                <div class="info">配送至</div>
+                <div class="addr"> ${goodData.goodsDetail.address} </div>
+            </div>
+        </div>
+        <div class="choose">
+            <ul class="screenNode"></ul>
+        </div>
+        <div class="appenCar">
+            <div class="cart">
+                <input type="text">
+                <a href="###" class="plus">+</a>
+                <a href="###" class="minus">-</a>
+            </div>
+            <button><span>加入购物车</span></button>
+        </div>`
+        var buyInfo = document.querySelector('.wrap .infoWrap .infol')
+        buyInfo.innerHTML = str
+    }
     choose();
     // 商品选择信息
     function choose() {
-        // 商品信息
-        var crumbData = [{
-                'title': '选择颜色',
-                'data': ['黄金色', '亮银银色', '大黑色']
-            },
-            {
-                'title': '内存容量',
-                'data': ['160G', '640G', '1280G', '2560G']
-            },
-            {
-                'title': '选择版本',
-                'data': ['公开版', '移动版']
-            },
-            {
-                'title': '购买方式',
-                'data': ['官方标配', '优惠移动版', '电信优惠版']
-            }
-        ];
+
         var dataList = document.querySelector('.wrap .infoWrap .choose')
 
         // 数据渲染
-        crumbData.forEach(function(item) {
+        goodData.goodsDetail.crumbData.forEach(function(item) {
+
             var dl = document.createElement('dl')
             var dt = document.createElement('dt')
             dt.innerHTML = item.title
             dl.appendChild(dt)
             item.data.forEach(function(item) {
                 var dd = document.createElement('dd')
-                dd.innerHTML = item
+                dd.innerHTML = item.type
+                dd.setAttribute("extraPrice", item.changePrice)
                 dl.appendChild(dd)
             })
             dataList.appendChild(dl)
         })
 
-        var screen = new Array(crumbData.length)
+        // 创建选择存储数组
+        var screen = new Array(goodData.goodsDetail.crumbData.length)
         screen.fill(0)
 
         var dlList = document.querySelectorAll('.wrap .infoWrap .choose dl')
@@ -227,17 +381,18 @@ window.addEventListener('DOMContentLoaded', function() {
                         this.style.color = 'red'
 
                         // 将被点击内容存储到数组
-                        screen[this.parentNode.index] = this.innerHTML
+                        screen[this.parentNode.index] = this
 
                         var screenNode = document.querySelector('.wrap .infoWrap .choose .screenNode')
                             // 清空选中信息
                         screenNode.innerHTML = ''
 
+                        totalPrice();
                         // 创建选中内容
                         screen.forEach(function(item, index) {
                             if (item) {
                                 var mark = document.createElement('mark')
-                                mark.innerHTML = item
+                                mark.innerHTML = item.innerHTML
                                 var a = document.createElement('a')
                                 a.innerHTML = 'X'
                                     // 标记标签
@@ -265,11 +420,32 @@ window.addEventListener('DOMContentLoaded', function() {
 
                                 // 重置数组对应下标的内容
                                 screen[delNum] = 0
+                                totalPrice();
                             }
                         }
+
                     }
                 }
             })(i)
+        }
+
+        // 计算总价
+        function totalPrice() {
+            var price = document.querySelector('.wrap .infoWrap .priceArea .priceAreal .price em')
+            var num = document.querySelector('.wrap .infoWrap .appenCar .cart input')
+
+            var number = num.value
+            var unitPrice = goodData.goodsDetail.price
+
+
+            for (var i = 0; i < screen.length; i++) {
+                if (screen[i] !== 0) {
+                    var p = screen[i].getAttribute('extraprice')
+                    unitPrice += parseInt(p)
+                }
+            }
+            var finalPrice = unitPrice * number
+            price.innerHTML = finalPrice
         }
 
     }
@@ -280,17 +456,26 @@ window.addEventListener('DOMContentLoaded', function() {
         var plus = document.querySelector('.wrap .infoWrap .appenCar .cart .plus')
         var minus = document.querySelector('.wrap .infoWrap .appenCar .cart .minus')
         var nums = document.querySelector('.wrap .infoWrap .appenCar .cart input')
-
+        var price = document.querySelector('.wrap .infoWrap .priceArea .priceAreal .price em')
+        var finalPrice = parseInt(price.innerHTML)
         nums.value = 1
         var num = 1
+
         plus.onclick = function() {
-            num++;
+
+            finalPrice = (finalPrice / num++) * num
+
+            price.innerHTML = finalPrice
             nums.value = num
+
+
         }
 
         minus.onclick = function() {
             if (num > 1) {
-                num--
+                finalPrice = (finalPrice / num--) * num
+
+                price.innerHTML = finalPrice
                 nums.value = num
             }
         }
@@ -299,6 +484,8 @@ window.addEventListener('DOMContentLoaded', function() {
             num = nums.value
         }
     }
+
+
 
 
 })

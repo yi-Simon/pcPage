@@ -1,3 +1,12 @@
+.wrap {
+  *zoom: 1;
+}
+.wrap:after {
+  display: block;
+  content: '';
+  clear: both;
+  height: 0;
+}
 .wrap .header > .top {
   width: 100%;
   height: 30px;
@@ -17,6 +26,13 @@
 }
 .wrap .header > .top .container .login {
   float: left;
+  *zoom: 1;
+}
+.wrap .header > .top .container .login:after {
+  display: block;
+  content: '';
+  clear: both;
+  height: 0;
 }
 .wrap .header > .top .container .login p:first-child {
   margin-right: 10px;
@@ -66,6 +82,13 @@
 .wrap .header > .bottom .container .search {
   float: right;
   margin-top: 35px;
+  *zoom: 1;
+}
+.wrap .header > .bottom .container .search:after {
+  display: block;
+  content: '';
+  clear: both;
+  height: 0;
 }
 .wrap .header > .bottom .container .search input {
   float: left;
@@ -131,6 +154,15 @@
   content: '/';
   color: #cccccc;
   padding: 0 5px;
+}
+.wrap .introduction .introWrap {
+  *zoom: 1;
+}
+.wrap .introduction .introWrap:after {
+  display: block;
+  content: '';
+  clear: both;
+  height: 0;
 }
 .wrap .introduction .introWrap .introArea {
   position: relative;
@@ -199,6 +231,13 @@
   position: absolute;
   left: 0;
   width: 9999px;
+  *zoom: 1;
+}
+.wrap .introduction .introWrap .introArea .introductionImgs .centerFrame .center:after {
+  display: block;
+  content: '';
+  clear: both;
+  height: 0;
 }
 .wrap .introduction .introWrap .introArea .introductionImgs .centerFrame .center .introMoreImg {
   float: left;
@@ -385,11 +424,27 @@
   border-bottom: 1px solid #bbb;
   cursor: pointer;
 }
+.wrap .infoWrap .appenCar {
+  *zoom: 1;
+}
+.wrap .infoWrap .appenCar:after {
+  display: block;
+  content: '';
+  clear: both;
+  height: 0;
+}
 .wrap .infoWrap .appenCar .cart {
   float: left;
   width: 48px;
   position: relative;
   margin-right: 15px;
+  *zoom: 1;
+}
+.wrap .infoWrap .appenCar .cart:after {
+  display: block;
+  content: '';
+  clear: both;
+  height: 0;
 }
 .wrap .infoWrap .appenCar .cart input {
   width: 38px;
@@ -428,4 +483,90 @@
   margin: 0 25px;
   font-size: 16px;
   color: white;
+}
+.wrap .detailIntrol {
+  width: 100%;
+}
+.wrap .detailIntrol .detailIntrols {
+  width: 1200px;
+  margin: 30px auto 0;
+  *zoom: 1;
+}
+.wrap .detailIntrol .detailIntrols:after {
+  display: block;
+  content: '';
+  clear: both;
+  height: 0;
+}
+.wrap .detailIntrol .detailIntrols .details {
+  float: left;
+  width: 210px;
+  border: 1px solid #ccc;
+}
+.wrap .detailIntrol .detailIntrols .details .tabB {
+  height: 40px;
+  *zoom: 1;
+}
+.wrap .detailIntrol .detailIntrols .details .tabB:after {
+  display: block;
+  content: '';
+  clear: both;
+  height: 0;
+}
+.wrap .detailIntrol .detailIntrols .details .tabB .tab {
+  float: left;
+  text-align: center;
+  line-height: 37px;
+  width: 105px;
+  border-bottom: 1px solid #CCC;
+}
+.wrap .detailIntrol .detailIntrols .details .tabB .active {
+  border-top: 2px solid #e1251b;
+  border-bottom: 0;
+}
+.wrap .detailIntrol .detailIntrols .details .show {
+  display: block;
+}
+.wrap .detailIntrol .detailIntrols .details .hide {
+  display: none;
+}
+.wrap .detailIntrol .detailIntrols .details .content {
+  padding: 10px;
+}
+.wrap .detailIntrol .detailIntrols .details .content .goodlist ul {
+  *zoom: 1;
+}
+.wrap .detailIntrol .detailIntrols .details .content .goodlist ul:after {
+  display: block;
+  content: '';
+  clear: both;
+  height: 0;
+}
+.wrap .detailIntrol .detailIntrols .details .content .goodlist ul li {
+  float: left;
+  width: 50%;
+  border-bottom: 1px dashed #ededed;
+  line-height: 28px;
+}
+.wrap .detailIntrol .detailIntrols .details .content .imgClass {
+  margin: 5px 0 15px;
+  border-bottom: 1px solid #ededed;
+}
+.wrap .detailIntrol .detailIntrols .details .content .imgClass img {
+  display: inline-block;
+  width: 152px;
+}
+.wrap .detailIntrol .detailIntrols .details .content .imgClass em {
+  font-size: 16px;
+  color: #c81623;
+}
+.wrap .detailIntrol .detailIntrols .details .content .imgClass .addToCart {
+  text-align: center;
+}
+.wrap .detailIntrol .detailIntrols .details .content .imgClass .addToCart a {
+  display: inline-block;
+  margin: 5px auto;
+  border: 1px solid #8c8c8c;
+  color: #8c8c8c;
+  padding: 2px 14px;
 }
